@@ -1,0 +1,26 @@
+<div class="container register-container">
+  <div class="card shadow-lg border-0 rounded-4">
+    <div class="card-body p-4">
+      <h2 class="text-center mb-4">Register</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your name" formControlName="name">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email" formControlName="email">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter your password" formControlName="password">
+        </div>
+        <div class="mb-3">
+          <label for="confirmpassword" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm your password" formControlName="confirmPassword">
+        </div>
+        <button type="submit" class="btn btn-dark w-100" [disabled]="registerForm.invalid">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
