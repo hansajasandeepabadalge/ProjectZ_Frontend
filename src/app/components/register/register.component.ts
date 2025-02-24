@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {JwtService} from '../../service/jwt.service';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {ObjectUnsubscribedError} from 'rxjs';
+import {Router} from '@angular/router';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-register',
@@ -16,7 +18,8 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   constructor(
     private service: JwtService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router,
   ) {
     this.registerForm = this.fb.group({})
   }
@@ -41,12 +44,17 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+
   submitForm() {
     console.log(this.registerForm.value);
     this.service.register(this.registerForm.value).subscribe(
       (response) => {
         console.log(response);
+        this.router.navigateByUrl('/login');
+      },
+      (error) => {
+        console.error(error);
       }
-    )
+    );
   }
 }

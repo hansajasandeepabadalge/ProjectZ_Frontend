@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required, Validators.email],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     })
 
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       (response) => {
         console.log(response.jwtToken);
         if (response.jwtToken != null) {
-          alert("Hello, Your token is " + response.jwtToken);
+          // alert("Hello, Your token is " + response.jwtToken);
           const jwt_Token = response.jwtToken;
           localStorage.setItem("jwt", jwt_Token);
           this.router.navigateByUrl("/dashboard");

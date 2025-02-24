@@ -2,7 +2,7 @@
   <div class="card shadow-lg border-0 rounded-4">
     <div class="card-body p-4">
       <h2 class="text-center mb-4">Login</h2>
-      <form [formGroup]="loginForm"(ngSubmit)="submitForm()">
+      <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
           <input type="email" class="form-control" id="email" placeholder="Enter your email" formControlName="email">
@@ -11,7 +11,7 @@
           <label for="password" class="form-label">Password</label>
           <input type="password" class="form-control" id="password" placeholder="Enter your password" formControlName="password">
         </div>
-        <button type="submit" class="btn btn-dark w-100" [disabled]="loginForm?.invalid">Login</button>
+        <button type="submit" class="btn btn-dark w-100" [disabled]="loginForm.invalid">Login</button>
       </form>
     </div>
   </div>

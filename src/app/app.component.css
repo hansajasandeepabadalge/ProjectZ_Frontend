@@ -1,1 +1,10 @@
 
+.mat-toolbar {
+  background-color: #28a745; /* Green background for success */
+  color: white;
+  font-weight: bold;
+}
+
+.mat-warn {
+  background-color: #dc3545; /* Red background for error */
+}
